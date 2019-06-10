@@ -15,8 +15,31 @@ Wir gehen davon aus, dass du bereits eine Nightscout Seite hast. Falls nicht, ge
   * `PUMP_FIELDS` = `reservoir battery clock`
   * Ein Alarm bei [niedrigem Pumpen-Batteriestand](https://github.com/nightscout/cgm-remote-monitor#pump-pump-monitoring) in % kann wie folgt aktiviert werden: 
     * `PUMP_WARN_BATT_P` = `51`
-    * `PUMP_URGENT_BATT_P` = `26`
+    * `PUMP_URGENT_BATT_P` = `26` 
+  * Optional: Die folgenden 'Timer' können für Farbhinweise im AAPS-Careportal eingestellt werden: 
+    * `BAGE_WARN` = `480` (Warnung nach x Stunden seit dem letzten Batteriewechsel-Event im Careportal)
+  * `BAGE_URGENT` = `504` (Dringende Warnung nach x Stunden seit dem letzten Batteriewechsel-Event im Careportal)
+  * `CAGE_WARN` = `40` (Warnung nach x Stunden seit dem letzten Kanülenwechsel-Event im Careportal)
+  * `CAGE_URGENT` = `48` (Dringende Warnung nach x Stunden seit dem letzten Kanülenwechsel-Event im Careportal)
+  * `IAGE_WARN` = `144` (Warnung nach x Stunden seit dem letzten Reservoirwechsel-Event im Careportal)
+  * `IAGE_URGENT` = `192` (Dringende Warnung nach x Stunden seit dem letzten Reservoirwechsel-Event im Careportal)
+  * `SAGE_WARN` = `160` (Warnung nach x Stunden seit dem letzten CGM-Sensor-Setzen-Event im Careportal)
+  * `SAGE_URGENT` = `168` (Dringende Warnung nach x Stunden seit dem letzten CGM-Sensor-Setzen-Event im Careportal)
 
 ![Azure](../../images/nightscout1.png)
 
 * Klicke auf "Speichern" am oberen Rand des Fensters.
+
+## Halb-automatische Nightscout Einrichtung
+
+Dieser Service wird von Looper Martin Schiftan derzeit kostenlos angeboten. Wenn Dir das Angebot gefällt, kannst Du ihm eine kleine Spende zukommen lassen. Den Link findest Du links in der Navigation auf seiner Seite.
+
+**Vorteile**
+
+* Du kannst Nightscout mit ein paar Klicks einrichten und direkt verwenden. 
+* Deutlich weniger manuelelr Aufwand, da Martin versucht, die Administration so weit als möglich zu automatisieren.
+* Alle Einstellungen können über eine benutzerfreundliche Weboberfläche vorgenommen werden. 
+* Eine automatisierte Basalratenüberprüfung mit Autotune ist ebenfalls enthalten. 
+* Der Server steht in Deutschland.
+
+<http://ns.10be.de/en/index.html>

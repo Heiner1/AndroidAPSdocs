@@ -1,11 +1,22 @@
 # AndroidAPS installieren - App erstellen
 
-Dieser Artikel ist in zwei Teile geteilt.
+* * *
 
-* Im “Überblick” werden die wichtigsten Schritte kurz zusammengefasst die allgemein nötig sind, um die APK Datei zu erstellen.
-* In der “Schritt für Schritt Anleitung” wird detailliert auf die einzelnen Punkte mithilfe von Screenshots eingegangen. Da die Versionen von Android Studio - der Software, die wir zum Bau der APK verwenden werden - sich schnell weiterentwickeln werden diese nicht mit deiner Installation übereinstimmen, aber sie geben einen guten ersten Eindruck. Android Studio läuft sowohl auf Windows, als auch auf Max OS X und Linux. Es kann sein, dass es bei jedem Betriebssystem einige kleinere Unterschiede gibt. Bei großeren Veränderungen oder fehlenden bzw. falschen Informationen wäre es hilfreich, dies den Entwicklern in der Facebookgruppe ‘Android APS’ oder in den Gitter Chats [Android APS](https://gitter.im/MilosKozak/AndroidAPS) oder [AndroidAPSwiki](https://gitter.im/AndroidAPSwiki/Lobby) mitzuteilen, so dass das Wiki stets aktuell ist.
+***Bitte beachte** beim Erstellen einer AndroidAPS 2.0 apk: **Configuration on demand** wird in der aktuellen Version des Android Gradle Plugins nicht unterstützt! Wenn der Build-Prozess mit einem Fehler zu "on demand configuration" fehlschlägt, dann kannst du folgendes tun:*
 
-## Überblick
+     *  *Das Einstellungen-Fenster öffnen, indem du auf Datei > Einstellungen (auf dem Mac: Android Studio > Präferenzen) klickst.*
+    *  *Im linken Fensterbereich, klicke auf Build, Execution, Deployment > Compiler.*
+    *  *Deaktiviere die "Configure on demand" checkbox.*
+    
+
+## * *Klicke Apply oder OK.*
+
+### Dieser Artikel ist in zwei Teile geteilt.
+
+* Im Überblick werden die wichtigsten Schritte kurz zusammengefasst die allgemein nötig sind, um die APK Datei zu erstellen.
+* In der “Schritt für Schritt Anleitung” wird detailliert auf die einzelnen Punkte mithilfe von Screenshots eingegangen. Da die Versionen von Android Studio - der Software, die wir zum Bau der APK verwenden werden - sich schnell weiterentwickeln werden diese nicht mit deiner Installation übereinstimmen, aber sie geben einen guten ersten Eindruck. Android Studio läuft sowohl auf Windows, als auch auf Mac OS X und Linux. Es kann sein, dass es bei jedem Betriebssystem einige kleinere Unterschiede gibt. Bei grösseren Veränderungen oder fehlenden bzw. falschen Informationen wäre es hilfreich, dies den Entwicklern in der Facebookgruppe "Android APS" oder in den Gitter Chats [Android APS](https://gitter.im/MilosKozak/AndroidAPS) oder [AndroidAPSwiki](https://gitter.im/AndroidAPSwiki/Lobby) mitzuteilen, so dass wir einen Blick darauf werfen können.
+
+## Übersicht
 
 Kurzfassung der wichtigsten Schritte zum Erstellen der APK Datei:
 
@@ -19,6 +30,8 @@ Kurzfassung der wichtigsten Schritte zum Erstellen der APK Datei:
 ## Schritt für Schritt Anleitung
 
 Detaillierte Beschreibung der notwendigen Schritte.
+
+## Android Studio installieren
 
 * Installiere git 
   * [Windows](https://gitforwindows.org/)
@@ -39,7 +52,7 @@ Wähle “Standard” Installation und klicke auf “Next”.
 
 ![Screenshot 3](../images/Installation_Screenshot_03.png)
 
-Wähle “Intellij” als “UI theme” (Benutzeroberfläche) und klicke auf “Next”.
+Wähle das Design für die Benutzeroberfläche, das Dir am besten gefällt. (In diesem Handbuch verwenden wir "Intellij".) Klicke danach auf “Next”. Das ist nur das Farbschema. Du kannst auswählen, was Du möchtest (z.B. "Darcula" für den dunklen Modus). Diese Auswahl hat keinen Einfluss auf die Erstellung der APK.
 
 ![Screenshot 4](../images/Installation_Screenshot_04.png)
 
@@ -61,9 +74,11 @@ Wenn der Download beendet ist, klicke auf “Finish”.
 
 ![Screenshot 9](../images/Installation_Screenshot_09.png)
 
-* Herzlichen Glückwunsch, jetzt hast du die Android Studio soweit fertig installiert und kannst mit dem “Cloning” des Quellcodes beginnen. Hier ist allerdings auch ein guter Zeitpunkt, um Pause zu machen.
+* Herzlichen Glückwunsch, jetzt hast du Android Studio soweit fertig installiert und kannst mit dem Clonen des Quellcodes beginnen. Hier ist allerdings auch ein guter Zeitpunkt, um eine Pause einzulegen.
 
-* Nutze “git clone” in Android Studio wie in dem folgendem Screenshot angegeben. Wähle “Check out project from Version Control” und “Git” aus.
+## Code und weitere Komponenten herunterladen
+
+* Nutze “git clone” in Android Studio wie in dem folgendem Screenshot angegeben. Wähle “Check out project from Version Control” und “Git” als konkretes System zur Versionskontrolle aus.
 
 ![Screenshot 10](../images/Installation_Screenshot_10.png) ![Version_Control_Git](../images/Version_Control_Git.png)
 
@@ -71,7 +86,7 @@ Gib die URL der Hauptseite des AndroidAPS Repositorys (“https://github.com/Mil
 
 ![Screenshot 13](../images/Installation_Screenshot_13.png)
 
-Android Studio fängt an das Projekt zu ”clonen” (kopieren). Klicke nicht auf “Background”. Das Clonen geht rasch und durch das Clonen im Background würde dies komplizierter.
+Android Studio fängt an das Projekt zu ”clonen” (kopieren). Klicke nicht auf “Background”, es geht schnell und macht es derzeit nur komplizierter.
 
 ![Screenshot 14](../images/Installation_Screenshot_14.png)
 
@@ -83,12 +98,12 @@ Nutze den Standard “default gradle wrapper” und klicke auf “OK”.
 
 ![Screenshot 16](../images/Installation_Screenshot_16.png)
 
-Lese und schließe den “Tip of the Day”, indem du auf “close” klickst.
+Lies und schließe den “Tip of the Day” von Android Studio, indem du auf “close” klickst.
 
 ![Screenshot 17](../images/Installation_Screenshot_17.png)
 
-* Perfekt, du hast jetzt eine Kopie des Quellcodes in Android Studio erstellt. Weiter geht es mit mit dem Kompilieren der APK.
-* Als nächstes wird dich eine Fehlermeldung erwarten. Glücklicherweise schlägt Android Studio gleich die Lösung vor:
+* Perfekt, du hast jetzt deine eigene Kopie des Quellcodes erstellt und kannst mit dem Kompilieren beginnen.
+* Als nächstes erwartet uns die erste Fehlermeldung. Glücklicherweise schlägt Android Studio gleich die Lösung vor.
 
 Klicke auf “Install missing platform(s) and sync project”, da Android Studios noch einige Komponenten installieren muss.
 
@@ -146,9 +161,13 @@ Sieht so aus, als ob wir die Fehlermeldungen hinter uns haben :). Zeit für eine
 
 ![Screenshot 31](../images/Installation_Screenshot_31.png)
 
-Nun wird von Android Studios empfohlen,”Gradle Plugin” auf Version 4.4 zu aktualisieren. Für den Fall, dass du die AndroidAPS App mit einer Version älter als Android APS 2.0 oder ein ‘release candidate’(RC) Version bauen willst, dann klicke NICHT auf “Update”, sondern auf “Remind me tomorrow”, ansonsten wird die App nicht kompiliert werden können. Für AndroidAPS ist es kein Nachteil oder Unterschied, mit einer älteren Version von ‘Gradle’ gebaut zu werden. “Gradle” ist nur dafür da, den “Build Process” zu kontrollieren. Die APK-Datei unterscheidet sich nicht. Wenn du eine Version von AndroidAPS 2.0 oder größer bauen willst, könntest du dennoch auf Version 4.4 aktualisieren.
+<!--- Android Studio recommends we now update the gradle system to version 4.4. If you made this build for an AndroidAPS version before the release of at least a release candidate(RC) of version 2.0 do not follow this recommendation. Otherwise, the build will fail. The gradle system is a tool which Android Studio uses to control the build process. For AndroidAPS there is no disadvantage to using the old gradle version. The APK file in the end is not different. If you build a APK for version 2 of AndroidAPS feel free to upgrade the gradle system to version 4.4. ---> Android Studio empfiehlt, das Gradle-System zu aktualisieren. 
 
-![Screenshot 32](../images/Installation_Screenshot_32.png)
+**Führe niemals ein Gradle-Update durch!** Dies kann zu Problemen führen!
+
+Klicke auf "Don't remind me again for this project".
+
+![Screenshot 32](../images/AS_NoGradleUpdate.png)
 
 Der Prozess läuft weiter...
 
@@ -158,40 +177,51 @@ Perfekt, der erste “Build Prozess” ist erfolgreich abgeschlossen, aber wir s
 
 ![Screenshot 34](../images/Installation_Screenshot_34.png)
 
-Als nächstes, gehe zum “Build” Menü und “Generate Signed APK”. Signieren bedeutet wie im wirklichen Leben, dass du deine generierte Anwendung "unterschreibst", aber auf digitale Weise als eine Art digitaler Fingerabdruck in der Anwendung selbst. Es ist notwendig, die App digital zu signieren, da Android aus Sicherheitsgründen nur signierten Quellcode akzeptiert. Falls dich das Thema interessiert, findest du [hier](https://developer.android.com/studio/publish/app-signing.html#generate-key) mehr.
+## Siginierte APK erstellen (Generate signed APK)
 
-![Screenshot 39](../images/Installation_Screenshot_39.png)
+<!--- Do not forget to copy to update-to-new-version.md / But keystore path must be modified --->
+
+Wähle im Menü "Build" und dann "Generate Signed Bundle / APK...". (Das Menü in Android Studio wurde im September 2018 geändert. Falls Du eine ältere Version benutzt, wähle im Menü “Build” und dann “Generate Signed APK...”.)  
+Signieren bedeutet, dass du deine generierte Anwendung unterschreibst, aber digital als eine Art digitaler Fingerabdruck in der Anwendung selbst. Es ist notwendig, die App digital zu signieren, da Android aus Sicherheitsgründen nur signierten Code akzeptiert. Falls dich das Thema interessiert, findest du [hier](https://developer.android.com/studio/publish/app-signing.html#generate-key) mehr. Sicherheit ist ein großes und komplexes Thema, um das du dich zur Zeit noch nicht kümmern musst.
+
+![Screenshot 39a](../images/Installation_Screenshot_39a.PNG)
+
+Wähle in der folgenden Dialogbox "APK" statt "Android App Bundle" und klicke auf den Button "Next".
+
+![Screenshot 39b](../images/Installation_Screenshot_39b.PNG)
 
 Wähle “App” aus und klicke auf “Next”.
 
+<!--- Next 20 lines (until Screenshot_43.png) must be modified in update page as existing key store should be used --->
+
 ![Screenshot 40](../images/Installation_Screenshot_40.png)
 
-Klicke auf “Create new...” um einen “Keystore” zu erstellen. Dieser ist nichts anderes als ein Ordner, indem die Informationen deiner Signatur der App gespeichert ist. Diese ist verschlüsselt und mit Passwörtern versehen. Du solltest dich künftig an den Dateipfad (“Key store path”) und die Passwörter erinnern können. Falls du diese vergessen hast, ist es aber auch nicht weiter tragisch, da du sonst einfach einen neuen “Keystore” erstellen kannst.
+Click "Create new..." to start creating your keystore. A keystore in this case is nothing more than a file in which the information for signing is stored. It is encrypted and the information is secured with passwords. We suggest storing it in your home folder and remember the passwords but if you lose this information it's not a big issue because then you just have to create a new one. Best practice is to store this information carefully.
 
 ![Screenshot 41](../images/Installation_Screenshot_41.png)
 
 * Fülle die Informationen in den nächsten Textfeldern aus. 
   * “Key store path”: Der Ort, an dem der Keystore gespeichert wird.
-  * “Password”: Um sicher zu gehen, dass du das richtige Passwort eingibst, das du gerne hättest, ist es notwendig, dass Passwort zwei mal einzugeben, in “Password” und “Confirm”, was so viel wie “bestätigen” bedeutet.
-  * “Alias”: ist der Name für die Verschlüsselung. Du kannst ihn stehen lassen, wie vorgegeben oder jeden beliebigen anderen Namen geben.
-  * “(key) Password”: hier gibst du das Passwort für die Verschlüsselung selber ein. Das Passwort muss wieder in “Cofirm” ein zweites Mal eingetragen werden.
-  * “Validity”: Übersetzt bedeutet das “Gültigkeit”. Du kannst die “25 years” so stehen lassen.
-  * Du bist nur verpflichtet, “First and Last Name” (“übersetzt: Vor- und Nachname”) auszufüllen, kannst aber auch den Rest ergänzen. Klicke danach auf “OK”.
+  * Die Passwortfelder sind dazu da, um den Key auf Tippfehler zu überprüfen.
+  * “Alias”: ist der Name des Schlüssels. Du kannst ihn unverändert lassen wie vorgegeben oder jeden beliebigen anderen Namen eingeben.
+  * Die Passwort-Felder unter dem Key sind für den Key selbst. Wie immer, um die Eingabe auf Tippfehler zu prüfen.
+  * Die Gültigkeit kannst du bei den vorgeschlagenen 25 Jahren belassen.
+  * Du musst nur Vor- und Nachname ausfüllen, kannst aber auch den Rest ergänzen. Klicke danach auf “OK”.
 
 ![Screenshot 42](../images/Installation_Screenshot_42.png)
 
-Fülle die Informationen von dem Keystore, den du gerade erstellt hast, aus und klicke auf “Next”.
+Fill in the information of the last dialog in this dialog and click "Next".
 
 ![Screenshot 43](../images/Installation_Screenshot_43.png)
 
-Wähle “full” in dem “Flavors” Menü aus, um die vollständige AndroidAPS App zu erstellen und klicke auf V1 “Jar Signature” (V2 ist optional) und klicke auf “Finish”. Folgende Informationen könnten später für dich nützlich sein:
+<!--- End modification here ---> Wähle “full” in dem “Flavors” Menü aus, um die vollständige AndroidAPS App zu erstellen und klicke auf V1 “Jar Signature” (V2 ist optional) und klicke auf “Finish”. Folgende Informationen könnten später für dich nützlich sein:
 
 * “Release” solltest du immer lassen, “Debug” ist nur für Programmierer, um Fehler zu finden.
-* Wähle den “Flavour”, den du kompilieren möchtest: 
-  * full: Gesamte App (inkl. open loop, closed loop, Smartwatch-Steuerung)
-  * openloop (dieser gibt nur temporäre Basalraten-Vorschläge, die nur manuell auszuführen sind)
-  * pumpcontrol (kein Loop, mit dieser kann man die Pumpe über die App bedienen)
-  * nsclient (hier werden z.B. die Daten eines anderen Nutzers dargestellt und Careportal-Einträge können hinzugefügt werden)
+* Wähle den “build type”, den du kompilieren möchtest: 
+  * full (d.h. automatische Pumpensteuerung im Closed Loop)
+  * openloop (d.h. gibt temporäre Basalraten-Vorschläge, die manuell auszuführen sind)
+  * pumpcontrol (d.h. nur Fernbedienung für die Pumpe, kein Loopen)
+  * nsclient (d.h. es werden z.B. die Daten eines anderen Nutzers dargestellt und Careportal-Einträge können hinzugefügt werden)
 
 ![Screenshot 44](../images/Installation_Screenshot_44.png)
 
@@ -203,21 +233,23 @@ Klicke auf “locate” im “event log”.
 
 ![Screenshot 46](../images/Installation_Screenshot_46.png)
 
-Es sollte sich ein Datei Manager öffnen. Dies könnte bei dir anders aussehen (dieser Screenshot wurde mit einem Linux-PC gemacht). In Windows wird sich der “Explorer” öffnen, in Mac OS X der “Finder”. Egal in welchem Datei Manager sollte jetzt eine APK sichtbar sein. Diese ist aber unglücklicherweise NICHT die, die wir suchen, diese ist nur die “wear-release.apk”.
+## Übertrage die APK-Datei auf das Smartphone
+
+<!--- Do not forget to copy to update-to-new-version.md --->
+
+Es sollte sich ein Datei Manager öffnen. Das könnte bei dir anders aussehen (dieser Screenshot wurde auf einem Linux PC erstellt). In Windows wird sich der “Explorer” öffnen, in Mac OS X der “Finder”. Dort solltest du jetzt das Verzeichnis mit der APK-Datei sehen. Es ist aber unglücklicherweise nicht die, die wir suchen, sondern nur die “wear-release.apk”.
 
 ![Screenshot 47](../images/Installation_Screenshot_47.png)
 
-Um zu der gesuchten APK zu gelangen, musst du zu dem Ordner AndroidAPS/app/full/release gehen und nach der “app-full-release.apk” Datei Ausschau halten. Übertrage die Datei auf dein Smartphone. Dafür gibt es verschiedene Möglichkeiten, wie Email, Bluetooth, Cloud Upload. In diesem Beispiel verwende ich Gmail, da dies für mich ziemlich einfach ist. Für Gmail und jede andere Methode auch, ist es Voraussetzung, dass das Installieren von unbekannten Apps für diese Quellen erlaubt ist. Dies kannst du in “Einstellungen- unbekannte Apps installieren” ändern. Wenn Du einen anderen Übertragungsweg nutzt, setze die entsprechenden Rechte analog zum Vorgehen bei Gmail.
+Um zu der gesuchten APK zu gelangen, musst du zu dem Ordner AndroidAPS/app/full/release gehen und nach der “app-full-release.apk” Datei Ausschau halten. Übertrage die Datei auf dein Smartphone. Sie können es auf Ihre bevorzugte Weise tun, z.B. Bluetooth, Cloud Upload, Computer und Telefon per Kabel verbinden oder E-Mail verwenden. In diesem Beispiel verwende ich Gmail, da dies für mich ziemlich einfach ist. Ich erwähne das deshalb, weil wir Android erlauben müssen, auf unserem Smartphone diese Installation auszuführen, auch wenn diese Datei via Google Mail empfangen wurde, was normalerweise verboten ist. Wenn Du einen anderen Übertragungsweg nutzt, setze die entsprechenden Rechte analog zum Vorgehen bei Gmail.
 
 ![Screenshot 48](../images/Installation_Screenshot_48.png)
 
-In den Einstellungen deines Smartphones gibt es einen Bereich "Unbekannte Quellen". Dort musst du Gmail das recht geben, APK Dateien zu installieren, die du per Gmail erhalten hast.
-
-![Screenshot 49](../images/Installation_Screenshot_49.png)
+In den Einstellungen deines Smartphones gibt es den Bereich "Unbekannte Quellen". Dort musst du Gmail das Recht geben, APK Dateien zu installieren, die du per Gmail erhalten hast.
 
 Klicke dort auf “aus dieser Quelle zulassen”. Nach der Installation ist es empfehlenswert dies aus Sicherheitsgründen wieder rückgängig zu machen.
 
-![Screenshot 50](../images/Installation_Screenshot_50.png)
+![Installation von Apps aus unbekannten Quellen zulassen](../images/Installation_Screenshot_49-50.png)
 
 Der letzte Schritt ist es, auf die APK Datei zu klicken und die App zu installieren. Sollte es nicht funktionieren, kann es sein, dass sich eine ältere Version mit einem anderen “Key”/einer anderen Signatur auf dem Handy befindet. Exportiere deine Einstellungen aus der älteren Version und deinstalliere diese erst danach.
 

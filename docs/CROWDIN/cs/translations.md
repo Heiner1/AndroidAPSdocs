@@ -1,6 +1,6 @@
 # Jak překládat AndroidAPS
 
-* Běžte na <https://translations.androidaps.org> a přihlašte se pomocí svého Github účtu
+* Jděte na <https://translations.androidaps.org> nebo <https://wikitranslations.androidaps.org> a přihlaste se Vaším Github účtem
 
 * Kontaktujte [Miloše](https://gitter.im/MilosKozak) nebo [Adriana](https://gitter.im/AdrianLxM) a udejte jazyk + jestli chcete být překladatel nebo korektor (jenom lidé zdatní v překládání nebo pokročilí AndroidAPS uživatelé)
 
