@@ -1,10 +1,30 @@
 # SMS Commands
 
+### Workaround for bug in AndroidAPS 2.3
+
+SMS Command Settings are disabled in AndroidAPS versions 2.3 because of a bug, but can be used in version 2.4 again.
+
+If you must use SMS commands you can use the following workaround:
+
+- Export settings
+- Downgrade to AndroidAPS version 2.2 (by installing your version 2.2 APK-file)
+- Do SMS command settings in AndroidAPS version 2.2.
+- Upgrade to AndroidAPS 2.3. SMS command settings will not be accessible there.
+
+## Safety First
+
+- AndroidAPS umożliwia zdalne sterowanie telefonem dziecka za pomocą wiadomości tekstowej. Jeśli włączysz ten komunikator SMS, zawsze pamiętaj, że telefon skonfigurowany do wydawania poleceń zdalnych może zostać skradziony. Dlatego zawsze chroń go przynajmniej kodem PIN.
+- AndroidAPS poinformuje Cię również SMS-em, jeśli Twoje polecenia zdalne, takie jak zmiana bolusa lub profilu, zostały wykonane. Zaleca się takie ustawienie funkcji sterowania pompą poprzez sms, aby teksty potwierdzające były wysyłane na co najmniej dwa różne numery telefonów, w przypadku kradzieży jednego z telefonów odbierających drugi telefon odbierze informację o zmianach.
+
+## How it works
+
 In your android phone setting go to Applications > AndroidAPS > Permissions and enable SMS
 
 In AndroidAPS go to Preferences > SMS Communicator and enter the phone number(s) that you will allow SMS commands to come from (separated by semicolons, no spaces or other characters anywhere - i.e. +4412345678;+4412345679) and also enable 'Allow remote commands via SMS'.
 
 Send a SMS to the phone with AndroidAPS running from your approved phone number(s) using any of the commands below in **bold**, the phone will respond to confirm success of command or status requested.
+
+**Hint**: It can be useful to have SMS flat for both phones if a lot of SMS will be sent.
 
 ## BG
 

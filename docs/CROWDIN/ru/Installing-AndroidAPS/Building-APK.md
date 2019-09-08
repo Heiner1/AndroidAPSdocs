@@ -1,256 +1,255 @@
-# Building the APK
+# Создание андроид-приложения (APK)
 
 * * *
 
-***Please note** when building AndroidAPS 2.0 apk: **Configuration on demand** is not supported by the current version of the Android Gradle plugin! If your build fails with an error regarding "on demand configuration" you can do the following:*
+**Обратите внимание** Версию AndroidAPS 2.3 невозможно построить на последней версии Android Studio. Скачивайте Android Studio 3.4 [отсюда](https://developer.android.com/studio/archive?).
 
-     * *Open the Preferences window by clicking File > Settings (on Mac, Android Studio > Preferences).*
-     * *In the left pane, click Build, Execution, Deployment > Compiler.*
-     * *Uncheck the Configure on demand checkbox.*
-    
+**Пожалуйста, обратите внимание** при создании приложения AndroidAPS 2.0: **Выборочная Конфигурация ** не поддерживается текущей версией плагина Android Gradle!
 
-## * *Click Apply or OK.*
+Если сборка выполнена с ошибкой, относящейся к "выборочной конфигурации", можно сделать следующее:
 
-### This article is divided into two parts.
+* Откройте окно настроек, нажав Файл > Настройки (на Mac, Android Studio > Настройки).
+* В левой панели нажмите Сборка, Выполнение, Развертывание > Компилятор.
+* Снимите флажок с ячейки "выборочная конфигурация".
+* Нажмите Применить или OK.
 
-* In the overview part there is an explanation on what steps are necessary to build the APK file.
-* In the step by step walkthrough part you will find the screenshots of a concrete installation. Because the versions of Android Studio - the software development environment which we will use to build the APK - will change very quickly this will be not identical to your installation but it should give you a good starting point. Android Studio also runs on Windows, Mac OS X and Linux and there might be small differences in some aspects between each platform. If you find that something important is wrong or missing, please inform the facebook group "AndroidAPS users" or in the Gitter chats [Android APS](https://gitter.im/MilosKozak/AndroidAPS) or [AndroidAPSwiki](https://gitter.im/AndroidAPSwiki/Lobby) so that we can have a look at this.
+* * *
 
-## Overview
+### Эта статья разделена на две части.
 
-In general, the steps necessary to build the APK file:
+* В обзорной части находится объяснение того, какие шаги необходимы для создания файла APK.
+* В пошаговой инструкции вы найдете снимки экранов установки. Поскольку версии Android Studio - среды разработки программного обеспечения, в которой мы будем создавать APK - меняются очень быстро, точного соответствия вашей сборке вы не увидите, но общее представление о том, как это делается, получите. Android Studio работает на Windows, Mac OS X и Linux, и между каждой платформой возможны незначительные различия. Если вы обнаружите, что что-то важное выполняется неправильно или отсутствует, сообщите в группе facebook "AndroidAPS users" или в чате Gitter [Android APS](https://gitter.im/MilosKozak/AndroidAPS) или [AndroidAPSwiki](https://gitter.im/AndroidAPSwiki/Lobby) чтобы мы могли устранить проблему.
 
-* Install git
-* Install and setup Android Studio.
-* Use git to clone the source code from the central Github repository where the developers have put the actual code for the app.
-* Open the cloned project in Android Studio as active project.
-* Build the signed APK.
-* Transfer the signed APK to your smartphone.
+## Главный экран
 
-## Step by step walkthrough
+В целом, шаги, необходимые для создания файла APK таковы:
 
-Detailed description of the steps necessary to build the APK file.
+* Установить git
+* Установить и настроить Android Studio.
+* Используя Git  клонировать исходный код центрального репозитория Github, где разработчики разместили код приложения.
+* В Android Studio открыть клонированный проект в качестве активного.
+* Построить подписанный APK.
+* Переместите подписанный APK на ваш телефон.
 
-## Install Android Studio
+## Пошаговое руководство
 
-* Install git 
+Подробное описание шагов, необходимых для создания файла APK.
+
+## Установите Android Studio
+
+* Установить git 
   * [Windows](https://gitforwindows.org/)
   * [Mac OS X](http://sourceforge.net/projects/git-osx-installer/)
-  * Linux - just install a package git via package manager of your distribution
-* Install [Android Studio](https://developer.android.com/studio/install.html).
-* Setup Android Studio during first start
+  * Linux - просто установите пакет Git через менеджер пакетов вашего дистрибутива
+* Установите [Android Studio](https://developer.android.com/studio/install.html).
+* Настройте Android Studio во время первого запуска
 
-Select "Do not import settings" as you have not used it before.
+Выберите "Не импортировать настройки", так как вы не использовали их раньше.
 
-![Screenshot 1](../images/Installation_Screenshot_01.png)
+![Снимок экрана 1](../images/Installation_Screenshot_01.png)
 
-Click "Next".
+Нажмите "Далее".
 
-![Screenshot 2](../images/Installation_Screenshot_02.png)
+![Снимок экрана 2](../images/Installation_Screenshot_02.png)
 
-Select "Standard" installation and click "Next".
+Выберите "Стандартная" установка и нажмите "Далее".
 
-![Screenshot 3](../images/Installation_Screenshot_03.png)
+![Снимок экрана 3](../images/Installation_Screenshot_03.png)
 
-Select the theme for the user interface you like. (In this manual we used "Intellij". Then click "Next". This is just the color scheme. You can select any you like (i.e. "Darcula" for dark mode). This selection has no influence on building the APK.
+Для интерфейса выберите тему, которая вам нравится. (В этом руководстве мы использовали тему"Intellij". Затем нажмите "Далее". Это всего лишь цветовая схема. Можете выбрать любую (напр. Darcula для темного режима). Этот выбор не влияет на построение APK.
 
-![Screenshot 4](../images/Installation_Screenshot_04.png)
+![Снимок экрана 4](../images/Installation_Screenshot_04.png)
 
-Click "Next" on the "Verify Settings" dialog.
+Нажмите "Далее" в диалоге "Проверить настройки".
 
-![Screenshot 5](../images/Installation_Screenshot_05.png)
+![Снимок экрана 5](../images/Installation_Screenshot_05.png)
 
-The Android emulator (to emulate the smartphone on your PC or Mac) is not used to build the APK. You can click "Finish" to finish the installation and read the documentation later on demand.
+Эмулятор Android (для эмуляции смартфона на Win или Mac) не используется при построении APK. Нажмите "Готово", чтобы завершить установку и при необходимости прочитать документацию.
 
-![Screenshot 6](../images/Installation_Screenshot_06.png)
+![Снимок экрана 6](../images/Installation_Screenshot_06.png)
 
-Android Studio is downloading a lot of software components it uses. You can click on the "Show Details" button to the what happens but that's not important at all.
+Android Studio загружает много программных компонентов. Можете нажать на кнопку "Показать детали" если хотите увидеть, что происходит, но в принципе это не важно.
 
-![Screenshot 7](../images/Installation_Screenshot_07.png)
+![Снимок экрана 7](../images/Installation_Screenshot_07.png)
 
-![Screenshot 8](../images/Installation_Screenshot_08.png)
+![Снимок экрана 8](../images/Installation_Screenshot_08.png)
 
-After the downloads are completed click the "Finish" button.
+После завершения загрузок нажмите кнопку "Готово".
 
-![Screenshot 9](../images/Installation_Screenshot_09.png)
+![Снимок экрана 9](../images/Installation_Screenshot_09.png)
 
-* Applause, applause you have now finished the Android Studio installation and can start cloning the source code. Maybe it's time for a short break?
+* Аплодисменты, аплодисменты. Установка Android Studio завершена и можно приступить к клонированию исходного кода. Можно сделать короткий перерыв.
 
-## Download code and additional components
+## Скачиваем код и дополнительные компоненты
 
-* Use git clone in Android Studio as shown in screenshots below. Select "Check out project from Version Control" with "Git" as concrete version control system.
+* Используйте клон Git в Android Studio, как показано на снимках экрана ниже. Выберите "Извлечь проект из системы управления версиями" при помощи Git в качестве конкретной системы управления версиями.
 
-![Screenshot 10](../images/Installation_Screenshot_10.png) ![Version_Control_Git](../images/Version_Control_Git.png)
+![Снимок экрана 10](../images/Installation_Screenshot_10.png)
 
-Fill in the URL to the main AndroidAPS repository ("https://github.com/MilosKozak/AndroidAPS") and click "clone".
+![Version_Control_Git](../images/Version_Control_Git.png)
 
-![Screenshot 13](../images/Installation_Screenshot_13.png)
+Заполните URL-адрес главного репозитория AndroidAPS ("https://github.com/MilosKozak/AndroidAPS") и нажмите "clone" (клонировать).
 
-Android Studio will start cloning. Don't click "Background" as it goes fast and makes things more complicated at the moment.
+![Снимок экрана 13](../images/Installation_Screenshot_13.png)
 
-![Screenshot 14](../images/Installation_Screenshot_14.png)
+Android Studio начнет клонирование. Не нажимайте на "Background" (фоновое клонирование), так как все происходит быстро и выбор этой опции может лишь усложнить работу.
 
-Finish the checkout from version control with opening the project by clicking "Yes".
+![Снимок экрана 14](../images/Installation_Screenshot_14.png)
 
-![Screenshot 15](../images/Installation_Screenshot_15.png)
+Завершите установку открытием проекта, нажав "Да".
 
-Use the standard "default gradle wrapper" and click "OK".
+![Снимок экрана 15](../images/Installation_Screenshot_15.png)
 
-![Screenshot 16](../images/Installation_Screenshot_16.png)
+Выберите стандартный «создатель оболочки gradle по умолчанию» и нажмите «OK».
 
-Read and close the "Tip of Day" screen of Android Studio by pressing "Close".
+![Снимок экрана 16](../images/Installation_Screenshot_16.png)
 
-![Screenshot 17](../images/Installation_Screenshot_17.png)
+Прочитайте и закройте экран "Совет дня", нажав "Закрыть".
 
-* Excellent, you have your own copy of the source code and are ready to start the build.
-* Now we are approaching our first error message. Fortunately, Android Studio will directly give us the solution for this.
+![Снимок экрана 17](../images/Installation_Screenshot_17.png)
 
-Click "Install missing platform(s) and sync project" as Android Studio needs to install a missing platform.
+* Отлично, теперь у нас есть своя копия исходного кода и мы готовы начать сборку.
+* Теперь мы приближаемся к первому сообщению об ошибке. К счастью, Android Studio будет сразу предлагать нам решения.
 
-![Screenshot 18](../images/Installation_Screenshot_18.png)
+Нажмите "Установить недостающую платформу(ы) и синхронизировать проект", так как Android Studio нуждается в установке отсутствующей платформы.
 
-Accept the license agreement by selecting "Accept" and clicking "Next".
+![Снимок экрана 18](../images/Installation_Screenshot_18.png)
 
-![Screenshot 19](../images/Installation_Screenshot_19.png)
+Примите лицензионное соглашение, выбрав "Принять" и нажав "Далее".
 
-As it is said in the dialog please wait until the download is finished.
+![Снимок экрана 19](../images/Installation_Screenshot_19.png)
 
-![Screenshot 20](../images/Installation_Screenshot_20.png)
+Как сказано в диалоге, подождите окончания загрузки.
 
-Now it's finished. Please click "Finish".
+![Снимок экрана 20](../images/Installation_Screenshot_20.png)
 
-![Screenshot 21](../images/Installation_Screenshot_21.png)
+Теперь она завершена. Нажмите "Готово".
 
-Aaaahhh, next error. But Android Studio suggests a similar solution. Click "Install Build Tools and sync project" as Android Studio needs to download missing Tools.
+![Снимок экрана 21](../images/Installation_Screenshot_21.png)
 
-![Screenshot 22](../images/Installation_Screenshot_22.png)
+Таак, следующая ошибка. Но Android Studio предлагает аналогичное решение. Нажмите "Установить инструменты сборки и синхронизировать проект", так как Android Studio нуждается в загрузке недостающих инструментов.
 
-As it is said in the dialog please wait until the download is finished.
+![Снимок экрана 22](../images/Installation_Screenshot_22.png)
 
-![Screenshot 23](../images/Installation_Screenshot_23.png)
+Как сказано в диалоге, подождите окончания загрузки.
 
-Now it's finished. Please click "Finish".
+![Снимок экрана 23](../images/Installation_Screenshot_23.png)
 
-![Screenshot 24](../images/Installation_Screenshot_24.png)
+Теперь она завершена. Нажмите "Готово".
 
-And another error to handle as Android Studio needs to download again a missing platform. Click "Install missing platform(s) and sync project".
+![Снимок экрана 24](../images/Installation_Screenshot_24.png)
 
-![Screenshot 25](../images/Installation_Screenshot_25.png)
+И еще одна ошибка, нуждающаяся в обработке так как Android Studio снова должна скачать отсутствующую платформу. Нажмите "Установить недостающую платформу(ы) и синхронизировать проект".
 
-As it is said in the dialog please wait until the download is finished.
+![Снимок экрана 25](../images/Installation_Screenshot_25.png)
 
-![Screenshot 26](../images/Installation_Screenshot_26.png)
+Как сказано в диалоге, подождите окончания загрузки.
 
-Now it's finished. Please click "Finish".
+![Снимок экрана 26](../images/Installation_Screenshot_26.png)
 
-![Screenshot 27](../images/Installation_Screenshot_27.png)
+Теперь она завершена. Нажмите "Готово".
 
-Click "Install Build Tools and sync project" as Android Studio needs to download missing Tools.
+![Снимок экрана 27](../images/Installation_Screenshot_27.png)
 
-![Screenshot 28](../images/Installation_Screenshot_28.png)
+Нажмите "Установить инструменты сборки и синхронизировать проект", так как Android Studio нуждается в загрузке недостающих инструментов.
 
-As it is said in the dialog please wait until the download is finished.
+![Снимок экрана 28](../images/Installation_Screenshot_28.png)
 
-![Screenshot 29](../images/Installation_Screenshot_29.png)
+Как сказано в диалоге, подождите окончания загрузки.
 
-Now it's finished. Please click "Finish".
+![Снимок экрана 29](../images/Installation_Screenshot_29.png)
 
-![Screenshot 30](../images/Installation_Screenshot_30.png)
+Теперь она завершена. Нажмите "Готово".
 
-Yeah, the error messages are gone and the first gradle build is runing. Maybe it's time to drink some water?
+![Снимок экрана 30](../images/Installation_Screenshot_30.png)
 
-![Screenshot 31](../images/Installation_Screenshot_31.png)
+Да, сообщения об ошибках пропали, и первая сборка gradle запущена. Настало время попить водички?
 
-<!--- Android Studio recommends we now update the gradle system to version 4.4. If you made this build for an AndroidAPS version before the release of at least a release candidate(RC) of version 2.0 do not follow this recommendation. Otherwise, the build will fail. The gradle system is a tool which Android Studio uses to control the build process. For AndroidAPS there is no disadvantage to using the old gradle version. The APK file in the end is not different. If you build a APK for version 2 of AndroidAPS feel free to upgrade the gradle system to version 4.4. ---> Android Studio recommends to update the gradle system. 
+![Снимок экрана 31](../images/Installation_Screenshot_31.png)
 
-**Never update gradle!** This might lead to difficulties!
+Android Studio рекомендует обновить систему gradle. **Не обновляйте gradle!** Это может привести к трудностям!
 
-Please click "Don't remind me again for this project".
+Нажмите "Не напоминать снова для этого проекта".
 
-![Screenshot 32](../images/AS_NoGradleUpdate.png)
+![Снимок экрана 32](../images/AS_NoGradleUpdate.png)
 
-The build is running again.
+Сборка возобновляется.
 
-![Screenshot 33](../images/Installation_Screenshot_33.png)
+![Снимок экрана 33](../images/Installation_Screenshot_33.png)
 
-Yeah, the first build is successful but we are not finished.
+Да, первая сборка завершена успешно, но мы еще не закончили.
 
-![Screenshot 34](../images/Installation_Screenshot_34.png)
+![Снимок экрана 34](../images/Installation_Screenshot_34.png)
 
-## Generate signed APK
+## Создание подписанного APK
 
-<!--- Do not forget to copy to update-to-new-version.md / But keystore path must be modified --->
+В меню выберите "Build"(выполнить сборку) и затем "Generate Signed Bundle / APK..."(создать подписанный пакет программ). (Меню в Android Studio изменилось с сентября 2018 года. В более старых версиях выберите в меню «Построить» и «Генерировать подписанный APK...».)
 
-In the menu select "Build" and then "Generate Signed Bundle / APK...". (The menu in Android Studio changed as of September 2018. In older versions select in the menu “Build” and then “Generate Signed APK...”.)  
-Signing means that you sign your generated app but in a digital way as a kind of digital fingerprint in the app itself. That is necessary because Android has a rule that it only accepts signed code to run for security reasons. For more information on this topic, follow the link [here](https://developer.android.com/studio/publish/app-signing.html#generate-key) Security is a deep and complex topic and you don't need this now.
+Подписание означает, что вы подписываете ваше созданное приложение, но цифровым способом, как цифровым отпечатком пальца в самом приложении. Это необходимо потому, что Android имеет правило, согласно которому принимается только подписанный код для запуска по соображениям безопасности. Для получения дополнительной информации по этой теме перейдите по ссылке [здесь](https://developer.android.com/studio/publish/app-signing.html#generate-key). Безопасность - это глубокая и сложная тема, нам она сейчас не нужна.
 
-![Screenshot 39a](../images/Installation_Screenshot_39a.PNG)
+![Снимок экрана 39a](../images/Installation_Screenshot_39a.PNG)
 
-In the following dialogue box select "APK" instead of "Android App Bundle" and click button "Next".
+В следующем диалоговом окне выберите "APK" вместо "Android App Bundle" и нажмите кнопку "Далее".
 
-![Screenshot 39b](../images/Installation_Screenshot_39b.PNG)
+![Снимок экрана 39b](../images/Installation_Screenshot_39b.PNG)
 
-Select "app" and click "Next".
+Выберите "app" (приложение) и нажмите "Next" (далее).
 
-<!--- Next 20 lines (until Screenshot_43.png) must be modified in update page as existing key store should be used --->
+![Снимок экрана 40](../images/Installation_Screenshot_40.png)
 
-![Screenshot 40](../images/Installation_Screenshot_40.png)
+Нажмите "Create new" (cоздать новый...) для создания магазина ключей. В этом случае магазин ключей является всего лишь файлом, в котором хранится информация о цифровой подписи. Он зашифрован и информация защищена паролями. Мы предлагаем хранить его в вашей домашней папке и помнить пароли, но если потеряете эту информацию, то просто должны создать новую. Самое лучшее - бережно хранить эту информацию.
 
-Click "Create new..." to start creating your keystore. A keystore in this case is nothing more than a file in which the information for signing is stored. It is encrypted and the information is secured with passwords. We suggest storing it in your home folder and remember the passwords but if you lose this information it's not a big issue because then you just have to create a new one. Best practice is to store this information carefully.
+![Снимок экрана 41](../images/Installation_Screenshot_41.png)
 
-![Screenshot 41](../images/Installation_Screenshot_41.png)
+* Заполните информацию для следующего диалога. 
+  * Путь к хранилищу ключа: путь к файлу магазина ключей
+  * Поля пароля для хранения ключей даются, чтобы обезопасить ввод от опечаток.
+  * Alias - это имя для нужного вам ключа. Вы можете оставить его по умолчанию или дать ему имя, которое придумаете.
+  * Поля пароля под ключом нужны для самого ключа. Как всегда, дважды проверьте ошибки при вводе.
+  * Вы можете оставить срок валидности по умолчанию 25 лет.
+  * Обязательны к заполнению только имя и фамилия, но можно заполнить остальную информацию. Затем нажмите "OK".
 
-* Fill in the information for the next dialog. 
-  * Key store path: is the path to the keystore file
-  * The password fields below are for the keystore to double check for typing errors.
-  * Alias is a name for the key you need. You can leave the default or give it a fancy name you want.
-  * The password fields below the key are for the key itself. As always to double check for typing errors.
-  * You can let the validity at the default of 25 years.
-  * You only have to fill out first name and last name but feel free to complete the rest of information. Then click "OK".
+![Снимок экрана 42](../images/Installation_Screenshot_42.png)
 
-![Screenshot 42](../images/Installation_Screenshot_42.png)
+Заполните информацию последнего диалога в этой серии диалогов и нажмите "Далее".
 
-Fill in the information of the last dialog in this dialog and click "Next".
+![Снимок экрана 43](../images/Installation_Screenshot_43.png)
 
-![Screenshot 43](../images/Installation_Screenshot_43.png)
+Выберите "full" (полный) в качестве атрибута для сгенерированного приложения. Выберите V1 "Jar Signature" (V2 необязательно) и нажмите "Finish" (закончить). В дальнейшем может пригодиться следующая информация.
 
-<!--- End modification here ---> Select "full" as flavour for the generated app. Select V1 "Jar Signature" (V2 is optional) and click "Finish". The following information might be important for later use.
+* 'Release' должен быть вашим выбором по умолчанию для "Build Type"(типа сборки), 'Debug' только для программистов.
+* Выберите тип сборки, который хотите создать. 
+  * полный (с автоматически принимаемыми рекомендациями в закрытом цикле)
+  * открытый цикл (рекомендации, адресованные пользователю, выполняются вручную)
+  * управление помпой (дистанционное управление помпой, без функционирования цикла)
+  * nsclient (например, отображаются данные другого пользователя, могут добавляться записи портала лечения/назначений)
 
-* 'Release' should be your default choice for "Build Type", 'Debug' is just for people coding.
-* Select the build type you want to build. 
-  * full (i.e. recommendations automatically enacted in closed looping)
-  * openloop (i.e. recommendations given to user to manually enact)
-  * pumpcontrol (i.e. remote control for pump, no looping)
-  * nsclient (i.e. looping data of another user is displayed and careportal entries can be added)
+![Снимок экрана 44](../images/Installation_Screenshot_44.png)
 
-![Screenshot 44](../images/Installation_Screenshot_44.png)
+В журнале событий вы увидите, что подписанное приложение (APK) было создано успешно.
 
-In the event log you see that the Signed APK was generated successfully.
+![Снимок экрана 45](../images/Installation_Screenshot_45.png)
 
-![Screenshot 45](../images/Installation_Screenshot_45.png)
+Нажмите на ссылку "Найти" в журнале событий.
 
-Click the "locate" link in the event log.
+![Снимок экрана 46](../images/Installation_Screenshot_46.png)
 
-![Screenshot 46](../images/Installation_Screenshot_46.png)
+## Перенос приложения на смартфон
 
-## Transfer APK to smartphone
+Открывается окно файлового менеджера. Может выглядеть немного иначе в вашей системе, поскольку я использую Linux. В Windows это будет File Explorer (проводник), а на Mac OS X Finder (поисковик). Там вы увидите каталог с созданным APK файлом. К сожалению, это неверное место, так как "wear-release.apk" не является подписанным приложением, которое мы ищем.
 
-<!--- Do not forget to copy to update-to-new-version.md --->
+![Снимок экрана 47](../images/Installation_Screenshot_47.png)
 
-A file manager window opens. It might look a bit different on your system as I am using Linux. On Windows there will be the File Explorer and on Mac OS X the Finder. There you should see the directory with the generated APK file. Unfortunately this is the wrong place as "wear-release.apk" is not the signed "app" APK we are searching for.
+Перейдите к папке AndroidAPS/app/full/release, чтобы найти файл "app-full-release.apk". Перенесите этот файл на смартфон Android. Вы можете сделать это по-своему, напр. загрузкой в облако, переносом с компьютера по кабелю или используя электронную почту. В этом примере я использую Gmail, так как для меня такой перенос привычнее. Для установки на нашем смартфоне следует дать системе Android разрешение сделать установку из Gmail, которая обычно запрещена. Если переносите установщик другим способом, поступите соответственно.
 
-![Screenshot 47](../images/Installation_Screenshot_47.png)
+![Снимок экрана 48](../images/Installation_Screenshot_48.png)
 
-Please change to the directory AndroidAPS/app/full/release to find the "app-full-release.apk" file. Transfer this file to your Android smartphone. You can do it on your preferred way, i.e. Bluetooth, cloud upload, connect computer and phone by cable or use email. I use Gmail here in this example as it is fairly simple for me. I mention this because to install the self-signed app we need to allow Android on our smartphone to do this installation even if this file is received via Gmail which is normally forbidden. If you use something other please proceed accordingly.
+В настройках смартфона есть область "установка неизвестных приложений" где я даю Gmail право устанавливать APK файлы, которые я получаю через Gmail.
 
-![Screenshot 48](../images/Installation_Screenshot_48.png)
+Выберите "Разрешить из этого источника". После установки вы можете отключить его снова.
 
-In the settings of your smartphone there is an area "unknown apps install" where I have to give Gmail the right to install APK files which I get via Gmail.
+![Установка приложений из неизвестных источников](../images/Installation_Screenshot_49-50.png)
 
-Select "Allow from this source". After the installation, you can disable it again.
+Последний шаг - нажать на файл APK, который я получил через Gmail и установить приложение. Если APK не установливается и у вас более старая версия AndroidAPS на телефоне, подписанная другим ключом, то нужно сначала удалить более старое приложение; при этом не забудьте экспортировать ваши настройки!
 
-![Installation from unknown sources](../images/Installation_Screenshot_49-50.png)
-
-The last step is to press on the APK file I got via Gmail and install the app. If the APK does not install and you have an older version of AndroidAPS on your phone that was signed with a different key then you will need to uninstall this first, remember to export your settings if so!
-
-Yeah, you got it and can now start with configuring AndroidAPS for your use (CGMS, insulin pump) etc.
+Да, все получилось, теперь можно начать настройку AndroidAPS (CGMS, помпа) и т. д.

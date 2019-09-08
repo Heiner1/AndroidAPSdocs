@@ -1,14 +1,33 @@
-# Timezone traveling with pumps
+# Strefy czasowe podróżowanie z pompami
 
 ## DanaR, Korean DanaR
 
-There is no issue with changing timezone in phone because pump doesn't use history
+Nie ma problemu ze zmianą strefy czasowej w telefonie, ponieważ te pompy nie używają historii
 
 ## DanaRv2, DanaRS
 
-These pumps need a special care because AndoridAPS is using history from the pump but the records in pump don't have timezone stamp. That means if you simple change timezone in phone, records will be read with different timezone and will be doubled. To avoid this do the following steps on every timezone change:
+Te pompy wymagają specjalnej uwagi, ponieważ AndroidAPS używa historii z pompy, ale rekordy w pompie nie mają stempla strefy czasowej. **That means if you simple change timezone in phone, records will be read with different timezone and will be doubled.**
 
-* switch phone for manual time zone change before travel
+To avoid this there are two possibilities:
+
+### Option 1: Keep home time and timeshift profile
+
+* Turn off 'Automatic date and time' in your phone settings (manual time zone change).
+* Phone must keep your standard time as at home for the whole travel period.
+* Time-shift your profile according to time difference between home time and destination time.
+   
+   * Long-press profile name (middle of top section on homescreen)
+   * Select 'Profile Switch'
+   * Set 'Time shift' according to your destination.
+   
+   ![Profile switch with time shift](../images/ProfileSwitchTimeShift2.png)
+   
+   * i.e. Vienna -> New York: profile switch +6 hours
+   * i.e. Vienna -> Sydney: profile switch -8 hours
+
+### Option 2: Delete pump history
+
+* Turn off 'Automatic date and time' in your phone settings (manual time zone change)
 
 When get out of plane:
 
@@ -32,7 +51,7 @@ It may cause inaccuracies in the TDDs. But it shouldn't be a problem.
 
 So the Insight user doesn't have to worry about timezone changes and time changes. There is one exception to this rule: The Insight pump has a small internal battery to power time etc. while you are changing the "real" battery. If changing battery takes to long this internal battery runs out of energy, the clock is reset and you are asked to enter time and date after inserting a new battery. In this case all entries prior to the battery change are skiped in calculation in AAPS as the correct time cannot be identified properly.
 
-# Time adjustment daylight savings time (DST)
+# Zmiana czasu z i na czas letni (DST)
 
 Depending on pump and CGM setup, jumps in time can lead to problems. With the Combo e.g. the pump history gets read again and it would lead to duplicate entries. So please do the adjustment while awake and not during the night.
 
@@ -49,13 +68,13 @@ AndroidAPS will issue an alarm if time between pump and phone differs to much. I
 
 A good time to make this switch would be with low IOB. E.g. an hour before a meal.
 
-## Accu-Chek Insight
+## Pompa Accu-Chek Insight
 
 * Change to DST is done automatically. No action required.
 
-## Other pumps - new as of AAPS version 2.2
+## Inne pompy - nowe od wersji AAPS 2.2
 
-<b><font color="#FF0000">You have to update AAPS to use this feature!</font></b>
+**You have to update AAPS to use this feature!**
 
 * To prevent difficulties the Loop will be deactivated for 3 hours AFTER the DST switch. This is done for safety reasons (IOB too high due to duplicated bolus prior to DST change).
 * You will receive a notification on the main screen 24 hours prior to DST change that loop will be disabled temporarily. This message will appear without beep, vibration or anything.

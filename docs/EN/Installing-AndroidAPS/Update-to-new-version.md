@@ -1,6 +1,8 @@
 # Update to a new version or branch
 
-<font color="#FF0000"><b>Important note: As of version 2.3 you have to use git to update. Updating via zip file does not work anymore.</font></b>
+<font color="#FF0000"><b>Important note: As of version 2.3 you have to use git to update. Updating via zip file does not work anymore.</font></b>. 
+
+***Note***: If updating to AndroidAPS 2.3, you need to use [Android Studio Version 3.4](https://developer.android.com/studio/archive?), it doesn't work with the latest one.
 
 ## Install git (if you don't have it)
 
@@ -186,7 +188,7 @@ If you receive failure message like
 
 ## App installed but old version
 
-If you build the app successfully, transferred it to your phone and installed it successfully but the version number stays the same then you might have missed the merging step in the [update manual](…/Installing-AndroidAPS/Update-to-new-version.html#updating-branch-from-github).
+If you build the app successfully, transferred it to your phone and installed it successfully but the version number stays the same then you might have missed the merging step in the [update manual](../Installing-AndroidAPS/Update-to-new-version#updating-branch-from-github).
 
 ## None of the above worked
 
@@ -199,7 +201,7 @@ If non of the above tips helped you might consider building the app from scratch
     In Android Studio Build -> Generate Signed APK
     ![Key store path](../images/KeystorePath.PNG)
  
- 4. Build app from scratch as described [here](…/Installing-AndroidAPS/Building-APK.html#download-code-and-additional-components).
+ 4. Build app from scratch as described [here](../Installing-AndroidAPS/Building-APK#download-code-and-additional-components).
      Use existing key and key store.
 5.	When you have build the APK successfully delete the exiting app on your phone, transfer the new apk to your phone and install.
 6. [Import settings](../Usage/Objectives#export-import-settings)
@@ -210,6 +212,6 @@ In case even building the app from scratch does not solve your problem you might
 
 Make sure to uninstall all files associated with Android Studio. Manuals can be found online i.e. [https://stackoverflow.com/questions/39953495/how-to-completely-uninstall-android-studio-from-windowsv10](https://stackoverflow.com/questions/39953495/how-to-completely-uninstall-android-studio-from-windowsv10).
 
-Install Android Studio from scratch as described [here](/Installing-AndroidAPS/Building-APK#install-android-studio) and **do not update gradle**.
+Install Android Studio from scratch as described [here](../Installing-AndroidAPS/Building-APK#install-android-studio) and **do not update gradle**.
 
 

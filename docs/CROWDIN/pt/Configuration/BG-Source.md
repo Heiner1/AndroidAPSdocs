@@ -1,6 +1,6 @@
-# General CGM recommendations
+**General CGM recommendations**
 
-## CGM hygiene
+**CGM hygiene**
 
 Whichever CGM system you are using, if you are going to use blood based calibration, then there are some very clear rules you should apply, whether or not you are using DIY CGM software or the official apps.
 
@@ -11,6 +11,26 @@ Whichever CGM system you are using, if you are going to use blood based calibrat
 * If it all possible, calibrate with some of your readings in a lower range (4-5mmol/l or 72-90mg/dl) and some at a slightly higher level (7-9mmol/l or 126-160mg/dl) as this provides a better range for the point/slope calibration.
 
 # Origem da Glicemia
+
+## Smoothing blood glucose
+
+AAPS works best when the blood glucose data it receives is smooth and consistent. Some features like 'Enable SMB always' and 'Enable SMB after carbs' can only be used with a nice-filtering BG source.
+
+### Dexcom G5 App (patched)
+
+When using Dexcom G5 App (patched) your BG data is smooth and consistent. There are no restrictions in using SMB.
+
+### xDrip+ with Dexcom G5
+
+Smooth enough data is only delivered if you use xDrip G5 'OB1 collector in native mode'.
+
+### xDrip+ with Freestyle Libre
+
+When using xDrip+ as your data source for Freestyle Libre values until now you cannot activate 'Enable SMB always' and 'Enable SMB after carbs' within SMB because the BG values are not smooth enough. Except this, there are a couple of things you can do to help reduce noise in the data.
+
+**Smooth Sensor Noise.** In xDrip+ Settings > xDrip+ Display Settings ensure that Smooth Sensor Noise is turned on. This attempts to apply smoothing to noisy data.
+
+**Smooth Sensor Noise (Ultrasensitive).** If you are still seeing noisy data in xDrip+ you can apply more aggressive smoothing using the Smooth Sensor Noise (Ultrasensitive) setting. This will attempt to apply smoothing even on very low levels of detected noise. To do this, first [enable engineering mode in xDrip+](../Enabling-Engineering-Mode-in-xDrip.md). Then navigate to Settings > xDrip+ Display Settings and turn on Smooth Sensor Noise (Ultrasensitive).
 
 ## For users of Dexcom
 
@@ -33,6 +53,7 @@ To learn more about the details and reasons for these recommendations read the [
 * If not already set up then download [xdrip](https://github.com/NightscoutFoundation/xDrip) and follow instructions on nightscout ([G4 without share](http://www.nightscout.info/wiki/welcome/nightscout-with-xdrip-wireless-bridge), [G4 share](http://www.nightscout.info/wiki/welcome/nightscout-with-xdrip-and-dexcom-share-wireless), [G5](http://www.nightscout.info/wiki/welcome/nightscout-with-xdrip-and-dexcom-share-wireless/xdrip-with-g5-support)).
 * Select xdrip in ConfigBuilder (setting in AndroidAPS).
 * Adjust settings in xDrip+ according to [xDrip+ settings page](../Configuration/xdrip.md)
+* If AAPS does not receive BG values when phone is in airplane mode use `Identify receiver` as describe on [xDrip+ settings page](../Configuration/xdrip.md).
 
 ### If using G5 with xdrip+
 
@@ -41,9 +62,9 @@ To learn more about the details and reasons for these recommendations read the [
 * In xdrip go to Settings > Interapp Compatibility > Accept Treatments and select OFF.
 * If you want to be able to use AndroidAPS to calibrate then in xdrip go to Settings > Interapp Compatibility > Accept Calibrations and select ON. You may also want to review the options in Settings > Less Common Settings > Advanced Calibration Settings.
 * Select xdrip in ConfigBuilder (setting in AndroidAPS).
+* If AAPS does not receive BG values when phone is in airplane mode use `Identify receiver` as describe on [xDrip+ settings page](../Configuration/xdrip.md).
 
-### If using G5 or G6 with patched Dexcom app  
-
+### If using G5 or G6 with patched Dexcom app
 
 * Download the apk from <https://github.com/dexcomapp/dexcomapp>, and choose the version that fits your needs (mg/dl or mmol/l version, G5 or G6).
 * Stop sensor and uninstall the original Dexcom app, if not already done.
@@ -77,6 +98,7 @@ To use your Libre as a CGM that is getting new BG values every 5 minutes you fir
 * If you want to be able to use AndroidAPS to calibrate then in xdrip go to Settings > Interapp Compatibility > Accept Calibrations and select ON. You may also want to review the options in Settings > Less Common Settings > Advanced Calibration Settings.
 * Select xdrip in ConfigBuilder (setting in AndroidAPS).
 * For settings in xDrip+ with screenshots see [xDrip+ settings page](../Configuration/xdrip.md)
+* If AAPS does not receive BG values when phone is in airplane mode use `Identify receiver` as describe on [xDrip+ settings page](../Configuration/xdrip.md).
 
 ### If using Glimp...  
 
@@ -87,7 +109,7 @@ To use your Libre as a CGM that is getting new BG values every 5 minutes you fir
 ## For users of Eversense  
 
 
-The easiest way to use Eversense with AndroidAPS is to install the modified [Eversense app](https://github.com/BernhardRo/Esel/blob/master/apk/mod_com.senseonics.gen12androidapp-release.apk) (and unistall the original one first).
+The easiest way to use Eversense with AndroidAPS is to install the modified [Eversense app](https://github.com/BernhardRo/Esel/blob/master/apk/eversense_cgm_v1.0.409_com.senseonics.gen12androidapp-patched.apk) (and unistall the original one first).
 
 **Warning: by uninstalling the old app, your local historical data older than one week will be lost!**
 

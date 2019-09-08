@@ -1,27 +1,47 @@
 # SMS-Befehle
 
-Gehe dazu in den Systemeinstellungen deines Android-Telefones zu Apps > AndroidAPS > Berechtigungen und aktiviere dort SMS
+### Workaround für Fehler in AndroidAPS 2.3
+
+Die Einstellungen der SMS-Befehle sind in AndroidAPS Versionen 2.3 wegen eines Fehlers deaktiviert, können aber ab Version 2.4 erneut verwendet werden.
+
+Falls Du zwingend SMS-Befehle nutzen musst, kannst Du folgenden Workaround probieren:
+
+- Exportiere die Einstellungen
+- Downgrade zu AndroidAPS Version 2.2 (durch Installation Deiner APK-Datei von Version 2.2)
+- Nimm die Einstellungen für SMS-Befehle in AndroidAPS version 2.2 vor.
+- Upgrade auf AndroidAPS 2.3. Die Einstellungen für SMS-Befehle sind dort nicht zugänglich.
+
+## Sicherheitshinweise
+
+- AndroidAPS erlaubt es Dir, das Smartphone eines Kindes über SMS-Nachricht aus der Ferne zu steuern. Wenn Du diesen SMS-Kommunikator aktivierst, denke immer daran, dass das Telefon, das für Remote-Befehle eingerichtet ist, gestohlen werden kann. Schütze dieses mit einem zumindest mit einem sicheren PIN-Code.
+- AndroidAPS gibt Rückmeldung per SMS, wenn Deine Remote-Befehle, wie z.B. ein Bolus oder eine Profiländerung, ausgeführt wurden. Es ist ratsam, dies so einzustellen, dass Bestätigungstexte an mindestens zwei verschiedene Telefonnummern gesendet werden, falls eines der Empfangstelefone gestohlen wird.
+
+## Funktionsweise
+
+Gehe zu den Programmen in Ihrem android-Handy-Einstellung > AndroidAPS > Berechtigungen und SMS aktivieren
 
 In AndroidAPS gehst du zu Einstellungen > SMS-Kommunikator und trägst die Telefonnummer(n) ein, die dazu berechtigt werden soll(en), Kommandos an AndroidAPS zu senden, mehrere Nummern werden dabei durch Semikolons ohne weitere Leerzeichen getrennt (z.B. +4912345678;+4912345679). ‘Erlaube externe Befehle per SMS’ muss außerdem aktiviert werden
 
-Sende von einem der berechtigten Telefone eine SMS an das Android-Handy, auf dem AndroidAPS installiert ist. Sende dazu eines der folgenden **fettgedruckten** Kommandos und das Handy wird mit einer Erfolgsmitteilung oder dem angeforderten Status antworten.
+Senden Sie eine SMS auf das Handy, mit AndroidAPS, die von Ihr zugelassenen Telefonnummern mit einem der Befehle unter **Fett**, das Telefon reagiert bestätigen Erfolg der Befehl oder den Status beantragt.
+
+**Hinweis**: Eine SMS-Flat auf beiden Telefonen kann nützlich sein, da u.U. viele SMS hin und her gesandt werden.
 
 ## BZ
 
-- Letzter Blutzucker 125 vor 4min, Delta: -12mg/dl, IOB: 0.20E (Bolus: 0.10E Basal: 0.10E)
+- Letzten BG: 5,6 4 min vor Delta:-0,2 Mmol, IOB: 0.20U (Bolus: 0.10U basale: 0.10U)
 
 ## LOOP STOP/DISABLE
 
-- Das Loopen wurde deaktiviert
+- Loop wurde deaktiviert.
 
 ## LOOP START/ENABLE
 
-- Das Loopen wurde aktiviert
+- Lopp wurde aktiviert
 
 ## LOOP STATUS
 
-- Das Loopen ist deaktiviert
-- Das Loopen ist aktiviert
+- Loop ist deaktiviert.
+- Loop ist aktiviert.
 - Pausiert (10 Min)
 
 ## LOOP SUSPEND 20
@@ -30,11 +50,11 @@ Sende von einem der berechtigten Telefone eine SMS an das Android-Handy, auf dem
 
 ## LOOP RESUME
 
-- Das Loopen fortsetzen
+- Loop wurde fortgesetzt
 
 ## TREATMENTS REFRESH
 
-- Geräte aktualisieren 1 Empfänger
+- TERATMENTS aktualisieren 1 Receiver
 
 ## NSCLIENT RESTART
 
@@ -50,7 +70,7 @@ Sende von einem der berechtigten Telefone eine SMS an das Android-Handy, auf dem
 
 ## BASAL 0.3
 
-- Um eine Basalrate mit 0,3 IE pro Stunde zu starten, antworte mit dem Code Swe
+- Um für 30 Minuten eine temporäre Basalrate mit 0,3 IE pro Stunde zu starten, antworte mit dem Code Swe
 
 ## BASAL 0.3 20
 
@@ -66,7 +86,7 @@ Sende von einem der berechtigten Telefone eine SMS an das Android-Handy, auf dem
 
 ## BOLUS 1.2
 
-- Um einen Bolus von 1,2 IE abzugeben, antworte mit dem Code Rrt
+- Um einen Bolus vo 1.2E abzugeben, antworte mit Code Rrt
 - Remote-Bolus wird nicht zugelassen *wenn innerhalb von 15 Minuten nach dem letzten Bolus-Befehl oder wenn Remote-Befehle grundsätzlich nicht erlaubt sind*.
 
 ## EXTENDED STOP/CANCEL

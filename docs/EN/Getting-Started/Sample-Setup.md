@@ -26,7 +26,7 @@ Nevertheless, the data is automatically uploaded to Nightscout "in the cloud" wh
    - Other pumps might be available in the future, see [future possible pump drivers](Future-possible-Pump-Drivers.md) for details.
 
 3. [Dexcom G5](https://dexcom.com)
- * Alternatives: see list of possible [BG sources](../Configuration/BG-Source.md)
+ * Alternatives: see list of possible [BG sources](../Configuration/BG-Source.rst)
    
 4. Optional: Sony Smartwatch 3 (SWR50)
  * Alternatives: see [list of tested phones and watches](https://docs.google.com/spreadsheets/d/1gZAsN6f0gv6tkgy9EBsYl0BQNhna0RDqA9QGycAqCQc/edit#gid=698881435) for AndroidAPS (OS must be Android Wear)
@@ -104,7 +104,9 @@ xDrip+ is another mature open source app that offers countless possibilities. In
    - Settings > Hardware Data Source > 640G/EverSense
    - Settings > Inter-app settings > Accept Calibrations > `ON`
    - Menu > Start sensor (is only "pro forma" and has nothing to do with the running G5 sensor. This is necessary otherwise an error message will appear regularly.)       
-          
+
+For more information about xDrip+, see here [BG source page](../Configuration/BG-Source.md).
+
 ### Example of an alarm setup
 The "Urgent low alarm" (below 55 mg/dl resp. 3,1 mmol) is a standard alarm from the modified Dexcom app that cannot be disabled.
 

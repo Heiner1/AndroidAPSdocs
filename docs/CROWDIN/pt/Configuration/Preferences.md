@@ -6,7 +6,7 @@ Isso permite que você defina uma paswword para evitar alterações acidentais o
 
 ## Idade do Paciente
 
-Existem limites de segurança em vigor com base na idade que selecionou nessa configuração. Se começar a atingir esses limites rígidos (como o bolus máximo), é hora de dar um passo em frente. É uma má ideia selecionar uma idade superior à real, pois pode levar a uma sobre-dosagem inserindo o valor errado de insulina (ignorando a casa decimal, por exemplo). Se você quer saber os números reais para estes limites de código de segurança, vá para o recurso de algoritmo que você está usando em [esta página](../Usage/Open-APS-features.md).
+There are safety limits in place based on age you selected in this setting. Se começar a atingir esses limites rígidos (como o bolus máximo), é hora de dar um passo em frente. É uma má ideia selecionar uma idade superior à real, pois pode levar a uma sobre-dosagem inserindo o valor errado de insulina (ignorando a casa decimal, por exemplo). If you want to know the actual numbers for these hard coded safety limits, scroll to the algorithm feature you are using on [this page](../Usage/Open-APS-features.md).
 
 ## Geral
 
@@ -47,9 +47,9 @@ This setting exists as a safety limit to prevent AAPS from ever being capable of
 
 Amount of additional basal insulin (in units) allowed to accumulate in your body, on top of your normal basal profile. Once this value is reached, AAPS will stop giving additional basal insulin until your basal Insulin on Board (IOB) has decayed to within this range again.
 
-* This value does not consider bolus IOB, only basal.
-* This value is calculated and monitored indepentandlty of your normal basal rate. It is only the additional basal insulin on top of that normal rate that is considered.
-* This value is measured in insulin units (u).
+* Este valor não considera o IOB bolus, apenas basal.
+* Este valor é calculado e monitorado independente de sua taxa normal de basal. It is only the additional basal insulin on top of that normal rate that is considered.
+* Este valor é medido em unidades de insulina (u).
 
 When you begin looping, **it is advised to set Max Basal IOB to 0** for a period of time, while you are getting used to the system. This prevents AAPS from giving any additional basal insulin at all. During this time AAPS will still be able to limit or turn off your basal insulin to help prevent hypoglycaemia.
 

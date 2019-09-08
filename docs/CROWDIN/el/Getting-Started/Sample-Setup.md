@@ -28,7 +28,7 @@ Nevertheless, the data is automatically uploaded to Nightscout "in the cloud" wh
 
 3. [Dexcom G5](https://dexcom.com)
     
-    * Alternatives: see list of possible [BG sources](../Configuration/BG-Source.md)
+    * Alternatives: see list of possible [BG sources](../Configuration/BG-Source.rst)
 
 4. Optional: Sony Smartwatch 3 (SWR50)
     
@@ -59,7 +59,7 @@ Menu > Settings > Device security > Unknown sources > slider to right side (= ac
 
 For security reasons this setting should be set back to inactive once the installation of all apps described here has been completed.
 
-### Enable Bluetooth
+### Ενεργοποιήστε το Bluetooth
 
 1. Menu > Settings > Connections > Bluetooth > slider to right side (= active)
 2. Menu > Settings > Connections > Location > slider to right side (= active)
@@ -114,6 +114,8 @@ xDrip+ is another mature open source app that offers countless possibilities. In
     * Settings > Hardware Data Source > 640G/EverSense
     * Settings > Inter-app settings > Accept Calibrations > `ON`
     * Menu > Start sensor (is only "pro forma" and has nothing to do with the running G5 sensor. This is necessary otherwise an error message will appear regularly.) 
+
+For more information about xDrip+, see here [BG source page](../Configuration/BG-Source.md).
 
 ### Example of an alarm setup
 

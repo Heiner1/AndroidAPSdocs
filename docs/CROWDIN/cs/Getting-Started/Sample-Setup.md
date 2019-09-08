@@ -28,7 +28,7 @@ Nicméně, data se automaticky nahrají do Nightscoutu, jakmile je navázáno da
 
 3. [Dexcom G5](https://dexcom.com)
     
-    * Alternativy: viz seznam možných [zdrojů glykémie](../Configuration/BG-Source.md)
+    * Alternativy: viz seznam možných [zdrojů glykémie](../Configuration/BG-Source.rst)
 
 4. Volitelné: Sony Smartwatch 3 (SWR50)
     
@@ -90,16 +90,16 @@ Chcete-li to provést, proveďte na svém smartphonu následující kroky:
 
 ## Nainstalujte AndroidAPS
 
-1. Follow the instructions to [build the APK](../Installing-AndroidAPS/Building-APK#generate-signed-apk)
-2. [Transfer](../Installing-AndroidAPS/Building-APK#transfer-apk-to-smartphone) the generated APK to your phone
+1. Postupujte podle pokynů k [Vytvoření APK](../Installing-AndroidAPS/Building-APK#generate-signed-apk)
+2. [Nahrajte](../Installing-AndroidAPS/Building-APK#transfer-apk-to-smartphone) vygenerované APK do telefonu
 3. [Nakonfigurujte AndroidAPS ](../Configuration/Config-Builder.md) podle svých potřeb pomocí průvodce nastavením nebo ručně
 4. V tomto vzorovém nastavení jsme (mimo jiné) použili
 
-* BG source: `Dexcom G5 App (patched)` -- click cock-wheel and activate `Upload BG data to NS` and `Send BG data to xDrip+` (see [BG source](../Configuration/BG-Source.md)
+* Zdroj glykémie: `Dexcom G5 App (upravená)` -- zapněte `Nahrávat glykémie do NS` a `Posílat glykémie do xDrip+` (Více [Zdroj glykémií ](../Configuration/BG-Source.md)
 
 ![Nastavení G5](../images/SampleSetupG5Settings.png)
 
-* NS Client activated (see [NS Client](../Configuration/Config-Builder#ns-profile) and [Nightscout setup](../Installing-AndroidAPS/Nightscout.md))
+* NS Client aktivován (viz [NS Client](../Configuration/Config-Builder#ns-profile) a [Nightscout setup](../Installing-AndroidAPS/Nightscout.md))
 
 ## Nainstalujte xDrip+
 
@@ -115,9 +115,11 @@ xDrip+ je další vyspělá open source aplikace, která nabízí bezpočet mož
     * Nastavení > Komunikace mezi aplikacemi > Přijímat kalibrace > `ZAP`
     * Menu > Spustit senzor (je pouze „pro forma“ a nemá nic společného s běžícím senzorem G5. (To je nezbytné, jinak se bude pravidelně objevovat chybová zpráva.) 
 
+Další informace o aplikaci xDrip+ viz zde [stránka Zdroj glykémií](../Configuration/BG-Source.md).
+
 ### Příklad nastavení výstrahy
 
-„Urgentní nízká výstraha“ (pod 55 mg/dl resp. 3,1 mmol) je standardní výstraha z upravené aplikace Dexcom, kterou nelze zakázat.
+„Urgentní nízká výstraha“ (pod 3,1 mmol) je standardní výstraha z upravené aplikace Dexcom, kterou nelze zakázat.
 
 ![xDrip výstrahy](../images/SampleSetupxDripWarning.png)
 
@@ -127,11 +129,11 @@ Je-li na Samsungu Galaxy S7 (Nastavení > Zvuky a vibrace > Nerušit: posuvník 
 
 ## Zakažte možnost pro úsporu energie
 
-Na Samsungu Galaxy S7 přejděte do Menu > Nastavení > Údržba zařízení > Baterie > Nemonitorované aplikace > + Přidat aplikace: Vyberte postupně aplikace AndroidAPS, Dexcom G5 Mobile, xDrip + a Android Wear (pokud používáte hodinky)
+Na Samsungu Galaxy S7 přejděte do Menu > Nastavení > Údržba zařízení > Baterie > Nemonitorované aplikace > + Přidat aplikace: Vyberte postupně aplikace AndroidAPS, Dexcom G5 Mobile, xDrip + a Android Wear (pokud používáte hodinky).
 
 ## Volitelné: Sony Smartwatch 3 (SWR50)
 
-S hodinkami s Wear OS může být život s diabetem ještě nenápadnější. Hodinky lze použít k zobrazení aktuální glykémie, stavu smyčky atd. na zápěstí. Hodinky lze dokonce použít k ovládání AndroidAPS (např. spustit bolus k jídlu). Chcete-li vydat bolus, dvakrát klepněte na hodnotu glykémie na ciferníku AAPSv2. Hodinky SWR50 obvykle vydrží na jedno nabití fungovat celý den (používají stejnou nabíječku jako Samsung Galaxy S7: microUSB).
+S hodinkami s Wear OS může být život s diabetem ještě nenápadnější. Hodinky lze použít k zobrazení aktuální glykémie, stavu smyčky atd. na zápěstí. Hodinky lze dokonce použít k ovládání AndroidAPS (např. diskrétní poslání bolusu k jídlu). Chcete-li vydat bolus, dvakrát klepněte na hodnotu glykémie na ciferníku AAPSv2. Hodinky SWR50 obvykle vydrží na jedno nabití fungovat celý den (používají stejnou nabíječku jako Samsung Galaxy S7: microUSB).
 
 ![Chytré hodinky](../images/SampleSetupSmartwatch.png)
 
